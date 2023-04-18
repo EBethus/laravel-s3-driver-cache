@@ -1,16 +1,16 @@
 {
-    "name": "imannms/laravel-s3-cache-driver",
+    "name": "ebethus/laravel-s3-cache-driver",
     "description": "Laravel S3 cache driver. Support: Amazon S3, Digital Ocean Spaces, etc.",
     "type": "library",
-    "homepage": "https://github.com/imannms/laravel-s3-cache-driver",
+    "homepage": "https://github.com/EBethus/laravel-s3-driver-cache",
     "keywords":
     [
-		"php",
-		"laravel",
+        "php",
+        "laravel",
         "laravel cache driver",
-		"s3",
-		"amazon s3",
-		"digital ocean spaces"
+        "s3",
+        "amazon s3",
+        "digital ocean spaces"
     ],
     "license": "MIT",
     "authors": [
@@ -19,19 +19,23 @@
             "email": "socialtrens@gmail.com",
             "homepage": "https://github.com/imannms",
             "role": "Developer"
+        },
+        {
+            "name": "Alberto Berroteran Sanchez",
+            "email": "alberroteran@gmail.com"
         }
     ],
     "require": {
-        "php": ">=5.6",
-        "laravel/framework": ">=5.2",
-		"league/flysystem-aws-s3-v3": "^1.0"
+        "php": ">=8.0",
+        "laravel/framework": ">= 8.0",
+        "league/flysystem-aws-s3-v3": "^3.13.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.1|^7.5"
     },
     "autoload": {
         "psr-4": {
-            "Imannms\\LaravelS3CacheDriver\\": "src"
+            "EBethus\\LaravelS3CacheDriver\\": "src"
         }
     },
     "autoload-dev": {
@@ -44,11 +48,11 @@
     "config": {
         "sort-packages": true
     },
-	"extra": {
-		"laravel": {
-			"providers": [
-				"Imannms\\LaravelS3CacheDriver\\S3CacheServiceProvider"
-			]
-		}
-	}
+    "extra": {
+        "laravel": {
+            "providers": [
+                "EBethus\\LaravelS3CacheDriver\\S3CacheServiceProvider"
+            ]
+        }
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Imannms\LaravelS3CacheDriver;
+namespace EBethus\LaravelS3CacheDriver;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Cache;
@@ -22,16 +22,16 @@ class S3CacheServiceProvider extends ServiceProvider
     {
 
     }
-	
-	/**
-	 * Bootstrap any application services.
-	 *
-	 * @return void
-	 */
-	public function boot()
-	{				
-		Cache::extend('s3', function($app, $config){
-			return Cache::repository(new S3Store($app, $config));
-		});
-	}
+    
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Cache::extend('s3', function($app, $config){
+            return Cache::repository(new S3Store($app, $config));
+        });
+    }
 }

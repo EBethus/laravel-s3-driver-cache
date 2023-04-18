@@ -1,6 +1,6 @@
 <?php
 
-namespace Imannms\LaravelS3CacheDriver;
+namespace EBethus\LaravelS3CacheDriver;
 
 use Storage;
 use Exception;
@@ -35,11 +35,11 @@ class S3Store implements Store
      */
     public function __construct($app, $config)
     {
-		$filesystemManager = new FilesystemManager($app);
-		$this->files = $filesystemManager->createS3Driver($config);
-		
-		if(!empty($config['path']))
-			$this->directory = $config['path'];
+        $filesystemManager = new FilesystemManager($app);
+        $this->files = $filesystemManager->createS3Driver($config);
+        
+        if(!empty($config['path']))
+            $this->directory = $config['path'];
     }
 
     /**
@@ -63,14 +63,14 @@ class S3Store implements Store
      */
     public function many(array $keys)
     {
-		$items = [];
-		
+        $items = [];
+        
         foreach($keys as $key)
-		{
-			$items[] = $this->get($key);
-		}
-		
-		return $items;
+        {
+            $items[] = $this->get($key);
+        }
+        
+        return $items;
     }
 
     /**
@@ -102,11 +102,11 @@ class S3Store implements Store
     public function putMany(array $values, $seconds)
     {
         foreach($values as $key => $value)
-		{
-			$this->put($key, $value, $seconds);
-		}
-		
-		return true;
+        {
+            $this->put($key, $value, $seconds);
+        }
+        
+        return true;
     }
 
     /**
@@ -244,9 +244,8 @@ class S3Store implements Store
      */
     protected function path($key)
     {
-        $parts = array_slice(str_split($hash = sha1($key), 2), 0, 2);
-
-        return $this->directory.'/'.implode('/', $parts).'/'.$hash;
+        $nKey = str_slug($key);
+        return "{$this->directory}/{$nKey}";
     }
 
     /**
