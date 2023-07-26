@@ -247,7 +247,7 @@ class S3Store implements Store
      */
     protected function path($key)
     {
-        $nKey = Str::replace($key, ' ', '_');
+        $nKey = Str::replace(' ', '_', $key);
         return "{$this->directory}/{$nKey}";
     }
 
