@@ -2,8 +2,11 @@
 
 namespace EBethus\LaravelS3CacheDriver;
 
-use Storage;
+
 use Exception;
+use Storage;
+
+use Illuminate\Support\Str;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\InteractsWithTime;
 use Illuminate\Filesystem\FilesystemManager;
@@ -244,7 +247,7 @@ class S3Store implements Store
      */
     protected function path($key)
     {
-        $nKey = str_slug($key);
+        $nKey = Str::slug($key);
         return "{$this->directory}/{$nKey}";
     }
 
